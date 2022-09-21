@@ -1,6 +1,6 @@
 # LoanCalculator
 
-[Preview](https://loan-calculator-fazli.netlify.app/calculate-loan)
+[Preview](https://loan-calculator-fazli.netlify.app)
 
 ## Development server
 
