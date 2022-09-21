@@ -1,0 +1,116 @@
+<nz-card
+  nzTitle="Kalkylera månadskostnaden för ditt bolån"
+  [nzBordered]="false"
+>
+
+  <form
+    nz-form
+    [formGroup]="calculateLoanForm"
+  >
+
+    <nz-form-item>
+      <nz-form-label
+        nzRequired
+        [nzSm]="6"
+        [nzXs]="24"
+      >Sammanlagda lån</nz-form-label>
+      <nz-form-control
+        [nzSm]="14"
+        [nzXs]="34"
+      >
+        <nz-input-number
+          nz-input
+          formControlName="totalLoans"
+          [nzMin]="1"
+          [nzMax]="10"
+          [nzStep]="1">
+        </nz-input-number>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label
+        nzRequired
+        [nzSm]="6"
+        [nzXs]="24"
+      >Lån</nz-form-label>
+      <nz-form-control
+        nzErrorTip="The loan is required"
+        [nzSm]="14"
+        [nzXs]="34"
+      >
+        <input
+          nz-input
+          formControlName="loanAmount"
+          id="loanAmount" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label
+        nzRequired
+        [nzSm]="6"
+        [nzXs]="24"
+      >Ränta</nz-form-label>
+      <nz-input-number
+        nz-input
+        formControlName="interestRate"
+        [nzMin]="0"
+        [nzMax]="100"
+        [nzStep]="0.1"
+        [nzFormatter]="formatterPercent"
+        [nzParser]="parserPercent"
+      ></nz-input-number>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label
+        [nzSm]="6"
+        [nzXs]="24"
+        nzRequired
+      >Amotering</nz-form-label>
+      <nz-form-control
+        [nzSm]="14"
+        [nzXs]="34"
+        nzErrorTip="Amortering">
+        <input
+          nz-input
+          formControlName="amortering"
+          id="amortering" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label
+        [nzSm]="6"
+        [nzXs]="24"
+        nzRequired
+      >Månadsavgift</nz-form-label>
+      <nz-form-control
+        [nzSm]="14"
+        [nzXs]="34"
+        nzErrorTip="Amortering">
+        <input
+          nz-input
+          formControlName="manadsavgift"
+          id="manadsavgift" />
+      </nz-form-control>
+    </nz-form-item>
+
+  </form>
+
+  <nz-result
+    nzStatus="success"
+    nzTitle="Din månadskostnad kommer att bli: "
+    [nzIcon]="'dollar-circle'"
+  >
+    <div nz-result-extra>
+      <p>Ränta för en månad: {{totalAmountForInterestRate | number }}</p>
+      <p>Amortering + Månadsavgift blir : {{totalAmountWithoutInterestRate | number}}</p>
+      <p>Summan för en hel månad: <span style="color:#53C519">{{totalAmountPerMonth | number}} </span></p>
+    </div>
+  </nz-result>
+
+</nz-card>
+
+

@@ -1,0 +1,15 @@
+form{
+  width: 100%;
+  height:50%;
+  overflow-y: scroll;
+}
+
+::ng-deep .inner-content {
+  padding: 12px;
+  overflow-y : scroll;
+}
+
+nz-result{
+  padding: 0;
+  height: 20rem;
+}
