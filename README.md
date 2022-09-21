@@ -1,6 +1,6 @@
 # LoanCalculator
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.4.
+[Preview](https://loan-calculator-fazli.netlify.app/calculate-loan)
 
 ## Development server
 
